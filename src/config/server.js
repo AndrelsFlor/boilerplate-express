@@ -11,7 +11,8 @@ app.use(express.static('./app/public'));
 app.use(bodyParser.urlencoded( { extended: true } ) );
 app.use(expressValitador());
 
-consign().include('app/routes')
+consign({cwd: 'src'})
+.include('app/routes')
   .then('config/dbConnection.js')
   .then('app/models')
   .then('app/controllers')

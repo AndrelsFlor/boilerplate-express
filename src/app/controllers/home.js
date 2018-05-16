@@ -10,9 +10,9 @@ class Home {
     const testeModel = new this.app.app.models.TesteModel(connection);
     console.log('teste');
 
-    testeModel.getTeste((err, result) => {
-      console.log(result[0]);
-    });
+    // testeModel.getTeste((err, result) => {
+    //   console.log(result[0]);
+    // });
 
     this.res.send('ok');
   }

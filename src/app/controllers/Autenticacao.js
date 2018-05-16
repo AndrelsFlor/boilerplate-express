@@ -14,16 +14,14 @@ class Autenticacao {
     if (this.req.body.email && this.req.body.password) {
       const { email, password } = this.req.body;
       const user = {
-        email,
-        password
+        id: 1,
+        username: 'André',
+        email
       };
-      jwt.sign(user, this.key, { expiresIn: '1h' }, (err, token) => {
+      jwt.sign({ user }, this.key, { expiresIn: '1h' }, (err, token) => {
         this.res.json({ token });
       });
-      //   const token = jwt.sign(user, this.key, {
-      //     expiresIn: '1 day'
-      //   });
-      //   this.res.json({ token });
+
       return;
     }
     this.res.sendStatus(400);

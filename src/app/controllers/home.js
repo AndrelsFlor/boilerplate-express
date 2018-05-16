@@ -1,6 +1,13 @@
-module.exports.index = (app, req, res) => {
+export const index = (app, req, res) => {
 
-    // res.send('home/index');
+  const connection = app.config.dbConnection();
+  const testeModel = new app.app.models.TesteModel(connection);
+
+  console.log('foi', testeModel);
+
+  testeModel.getTeste((err, result) => {
+    console.log(result);
+  });
   console.log('teste');
   res.send('ok');
 

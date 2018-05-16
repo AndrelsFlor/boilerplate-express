@@ -1,6 +1,6 @@
-const express =  require('express');
-const consign = require('consign');
-const bodyParser = require('body-parser');
+import express from 'express';
+import consign from 'consign';
+import bodyParser from 'body-parser';
 
 const app = express();
 
@@ -18,4 +18,4 @@ consign({cwd: 'src'})
   .then('app/controllers')
   .into(app);
 
-module.exports = app;
+export default app;

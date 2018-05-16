@@ -1,14 +1,21 @@
-export const index = (app, req, res) => {
+class Home {
+  constructor(app, req, res) {
+    this.app = app;
+    this.req = req;
+    this.res = res;
+  }
 
-  const connection = app.config.dbConnection();
-  const testeModel = new app.app.models.TesteModel(connection);
+  index() {
+    const connection = this.app.config.dbConnection();
+    const testeModel = new this.app.app.models.TesteModel(connection);
+    console.log('teste');
 
-  console.log('foi', testeModel);
+    testeModel.getTeste((err, result) => {
+      console.log(result[0]);
+    });
 
-  testeModel.getTeste((err, result) => {
-    console.log(result);
-  });
-  console.log('teste');
-  res.send('ok');
+    this.res.send('ok');
+  }
+}
 
-};
+export default () => Home;

@@ -1,7 +1,6 @@
-const mysql  = require('mysql');
+import mysql from 'mysql';
 
 const connMysql = () => {
-
   console.log('conexao banco foi feita');
 
   return mysql.createConnection({
@@ -9,10 +8,8 @@ const connMysql = () => {
     port: 3306,
     user: 'root',
     password: '',
-    database : 'apiAtm',
+    database: 'apiAtm'
   });
+};
 
-};
-module.exports = () => {
-  return connMysql;
-};
+export default () => connMysql;

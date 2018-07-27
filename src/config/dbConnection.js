@@ -1,10 +1,6 @@
 const mysql  = require('mysql');
 
 const connMysql = () => {
-
-  console.log('conexao banco foi feita');
-
-const connMysql = () => {
   console.log('conexao banco foi feita');
 
   const con = mysql.createPool({

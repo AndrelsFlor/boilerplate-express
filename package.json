@@ -4,8 +4,8 @@
   "description": "Example Node Server Babel",
   "main": "dist/App.js",
   "scripts": {
-    "dev": "nodemon src/App.js --exec babel-node --presets es2015,stage-2",
-    "build": "babel src -d dist",
+    "dev": "nodemon -w src/App.js js --exec  \"babel-node src/App.js\" ",
+    "build": "babel src -s -D -d dist --presets env",
     "start": "node dist/App.js",
     "test": "mocha --compilers js:babel-register"
   },
@@ -20,6 +20,7 @@
     "nodemon": "^1.10.0"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.2",
     "consign": "^0.1.6",
     "express": "^4.16.3",

@@ -4,15 +4,20 @@ const connMysql = () => {
 
   console.log('conexao banco foi feita');
 
-  return mysql.createConnection({
+const connMysql = () => {
+  console.log('conexao banco foi feita');
+
+  const con = mysql.createPool({
+    connectionLimit: 10,
     host: 'localhost',
-    port: 8889,
+    port: 3306,
     user: 'root',
-    password: 'root',
-    database : 'portal_noticias',
+    password: '',
+    database: 'apiatm',
   });
 
+  con.query = util.promisify(con.query);
+  return con;
 };
-module.exports = () => {
-  return connMysql;
-};
+
+export default connMysql;
